@@ -1,3 +1,22 @@
+"""
+RLHF Demo Script using Hugging Face TRL
+
+This script demonstrates a minimal end-to-end Reinforcement Learning from Human Feedback (RLHF)
+pipeline consisting of three stages:
+
+1. Supervised Fine-Tuning (SFT)
+
+2. Reward Model Training
+
+3. PPO Reinforcement Learning
+
+Notes:
+- This demo uses small dataset slices and a 0.5B parameter model for fast experimentation.
+- Can be trained using either CPU or GPU by setting `use_cpu=False` for GPU.
+- Output models are saved in "sft-model/", "reward-model/", and "ppo-model/" directories.
+- Designed for educational purposes and quick testing of RLHF workflows.
+"""
+
 from trl import SFTTrainer, SFTConfig, RewardTrainer, RewardConfig
 from trl.experimental.ppo import PPOTrainer,PPOConfig,AutoModelForCausalLMWithValueHead
 from transformers import AutoTokenizer
@@ -51,8 +70,8 @@ ref_model = AutoModelForCausalLM.from_pretrained("sft-model")
 # Load your saved reward model
 reward_model = AutoModelForSequenceClassification.from_pretrained("reward-model",num_labels=1)
 value_model = AutoModelForSequenceClassification.from_pretrained("reward-model",num_labels=1)
-dataset_rl = load_dataset("trl-internal-testing/descriptiveness-sentiment-trl-style", split="descriptiveness[:500]")
-dataset_rl_eval=load_dataset("trl-internal-testing/descriptiveness-sentiment-trl-style", split="descriptiveness[500:600]")
+dataset_rl = load_dataset("trl-internal-testing/descriptiveness-sentiment-trl-style", split="descriptiveness[:20]")
+dataset_rl_eval=load_dataset("trl-internal-testing/descriptiveness-sentiment-trl-style", split="descriptiveness[20:30]")
 
 def prepare_dataset(dataset, tokenizer):
     """pre-tokenize the dataset before training; only collate during training"""
