@@ -12,7 +12,7 @@ pipeline consisting of three stages:
 
 Notes:
 - This demo uses small dataset slices and a 0.5B parameter model for fast experimentation.
-- This demo can be trained using either CPU or GPU by setting `use_cpu=False` for GPU.
+- This demo can be trained using either CPU or GPU by setting `use_cpu=False` for GPU and `use_cpu=True` for CPU.
 - Output models are saved in "sft-model/", "reward-model/", and "ppo-model/" directories.
 - Designed for educational purposes and quick testing of RLHF workflows.
 """
