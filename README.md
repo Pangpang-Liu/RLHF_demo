@@ -38,9 +38,9 @@ Adjust the sample-count constants in [dpo_demo.py](./dpo_demo.py) and [ppo_demo.
 ## Reference
 
 ```bibtex
-@article{rlhf_review,
-  title  = {Reinforcement Learning from Human Feedback: A Statistical Perspective},
-  author = {Liu, Pangpang and Shi, Chengchun and Sun, Will Wei},
+@article{liu2026reinforcement,
+  title={Reinforcement Learning from Human Feedback: A Statistical Perspective},
+  author={Liu, Pangpang and Shi, Chengchun and Sun, Will Wei},
   journal={arXiv preprint arXiv:2604.02507},
   year={2026}
 }
